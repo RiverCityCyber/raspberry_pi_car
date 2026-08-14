@@ -38,12 +38,12 @@ Something like this:
 ```
 ## Other notes
 This project is teaching me the following:
-- JavaScript and node.js
+- Node.js & TypeScript
 - Python
-- Docker
 - Soldering
 - Electrical Engineering
-- CAN bus networks
+- K-Line protocol
 - Raspberry Pi OS
 - Overall project experience and mimicing a dev -> prod flow
 - Documentation and markdown syntax
+- And overall just having fun!
