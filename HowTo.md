@@ -1,5 +1,5 @@
-How to:
-sudo apt update && upgrade
+### How to:
+``` sudo apt update && upgrade
 sudo lsblk -o NAME,SIZE,TYPE,MOUNTPOINT
 sudo mkfs.ext4 -L ssd_data /dev/sda1
 sudo mkdir -p /mnt/ssd
@@ -9,4 +9,4 @@ sudo nano /etc/fstab
   LABEL=ssd_data   /mnt/ssd   ext4   defaults,noatime   0   2
 sudo umount /mnt/ssd
 sudo mount -a
-sudo chown -R pi:pi /mnt/ssd
+sudo chown -R pi:pi /mnt/ssd ```
