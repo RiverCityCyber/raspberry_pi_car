@@ -1,7 +1,7 @@
 # raspberry_pi_car
 Using a raspberry pi as a dash cam and CAM bus reader
 ## Project Status
-Currently under development - like many of my projects. The current plan is to use Docker as the dev environment, testing out react-carplay and building custom overlay of OBDII inputs. 
+Currently under development - like many of my projects. Currently using react and Vite to build out a dashboard for diagnostics, testing out react-carplay and building custom overlay of OBDII inputs. 
 Something like this:
 ```text
 ┌─────────────────────────────────────────────┐
