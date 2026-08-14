@@ -1,122 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React from "react";
+import { Gauge, Wrench, Snowflake, Activity } from "lucide-react";
 
-function App() {
-  const [count, setCount] = useState(0)
+//shared palette
+const C = {
+  bg: "#14171B",
+  panel: "#1B1F24",
+  panelBorder: "#2A2F36",
+  ink: "#F2F4F6",
+  inkDim: "#8A929B",
+  teal: "#5EEAD4",
+};
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+const DISPLAY_FONT = "'Space Grotesk', 'Inter', sans-serif";
 
-      <div className="ticks"></div>
+export type PageKey = "diagnostics" | "maintenance" | "climate" | "performance";
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+interface NavTitle {
+  key: PageKey;
+  label: string;
+  icon: React.ComponentType<{ size?: number; color?: string }>;
 }
 
-export default App
+const TILES: NavTitle[] = [
+  { key: "diagnostics", label: "Diagnostics", icon: Gauge },
+  { key: "maintenance", label: "Maintenance", icon: Wrench },
+  { key: "climate", label: "A/C", icon: Snowflake },
+  { key: "performance", label: "Performance", icon: Activity },
+]
+
+interface AppProps {
+  //placeholder, will update later for real data
+  onNavigate?: (page: PageKey) => void;
+}
+
+export default function App({ onNavigate }: AppProps) {
+  return (
+    <div className="min-h-screen w-full flex flex-col items-center justify-center gap-6 p-6"
+    style={{ background: C.bg, fontFamily: DISPLAY_FONT }}>
+      <span style={{ color: C.inkDim, fontSize: 12, letterSpacing: "0.14em" }}
+      className="uppercase">Welcome • Select a page</span>
+      <div className="grid grid-cols-2 gap-4 w-full max-w-md">
+        {TILES.map(({ key, label, icon: Icon }) => (
+          <button key={key}
+          onClick={() => onNavigate?.(key)}
+          className="flex flex-col items-center justify-center gap-3 rounded-2xl py-8"
+          style={{
+            background: C.panel,
+            border: '1px solid ${C.panelBorder}',
+            color: C.ink,
+          }}>
+            <Icon size={36} color={C.teal} />
+            <span style={{ fontSize: 14, letterSpacing: "0.04em" }}>{label}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
