@@ -1,0 +1,56 @@
+[
+  {
+    "id": "t1",
+    "description": "Replace timing belt and water pump",
+    "triggerMileage": 225000,
+    "done": true
+  },
+  {
+    "id": "t2",
+    "description": "Change transmission fluid (ATF-Z1)",
+    "triggerMileage": 225000,
+    "done": true
+  },
+  {
+    "id": "t3",
+    "description": "Inspect / replace spark plugs (NGK Iridium)",
+    "triggerMileage": 225000,
+    "done": true
+  },
+  {
+    "id": "t4",
+    "description": "Flush coolant system & replace thermostat",
+    "triggerMileage": 225000,
+    "done": true
+  },
+  {
+    "id": "t5",
+    "description": "Adjust valve clearance (J35A3)",
+    "triggerMileage": 225000,
+    "done": true
+  },
+  {
+    "id": "t6",
+    "description": "Replace VTM-4 rear differential fluid",
+    "triggerMileage": 230000,
+    "done": false
+  },
+  {
+    "id": "t7",
+    "description": "Inspect suspension bushings & ball joints",
+    "triggerMileage": 230000,
+    "done": false
+  },
+  {
+    "id": "t8",
+    "description": "Replace brake fluid (DOT 4)",
+    "triggerMileage": 230000,
+    "done": false
+  },
+  {
+    "id": "t9",
+    "description": "Replace cabin & engine air filters",
+    "triggerMileage": 230000,
+    "done": false
+  }
+]

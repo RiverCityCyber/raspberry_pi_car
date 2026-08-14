@@ -1,59 +1,36 @@
-import React from "react";
-import { Gauge, Wrench, Snowflake, Activity } from "lucide-react";
-
-//shared palette
-const C = {
-  bg: "#14171B",
-  panel: "#1B1F24",
-  panelBorder: "#2A2F36",
-  ink: "#F2F4F6",
-  inkDim: "#8A929B",
-  teal: "#5EEAD4",
-};
-
-const DISPLAY_FONT = "'Space Grotesk', 'Inter', sans-serif";
+import React, { useState } from "react";
+import BottomNav from "./components/BottomNav";
+import Diagnostics from "./pages/Diagnostics";
+import Maintenance from "./pages/Maintenance";
+import Climate from "./pages/Climate";
+import Performance from "./pages/Performance";
 
 export type PageKey = "diagnostics" | "maintenance" | "climate" | "performance";
 
-interface NavTitle {
-  key: PageKey;
-  label: string;
-  icon: React.ComponentType<{ size?: number; color?: string }>;
-}
+const C = {
+  bg: "#14171B",
+};
 
-const TILES: NavTitle[] = [
-  { key: "diagnostics", label: "Diagnostics", icon: Gauge },
-  { key: "maintenance", label: "Maintenance", icon: Wrench },
-  { key: "climate", label: "A/C", icon: Snowflake },
-  { key: "performance", label: "Performance", icon: Activity },
-]
+export default function App() {
+  const [activePage, setActivePage] = useState<PageKey>("diagnostics");
 
-interface AppProps {
-  //placeholder, will update later for real data
-  onNavigate?: (page: PageKey) => void;
-}
+  function renderPage() {
+    switch (activePage) {
+      case "diagnostics":
+        return <Diagnostics />;
+      case "maintenance":
+        return <Maintenance />;
+      case "climate":
+        return <Climate />;
+      case "performance":
+        return <Performance />;
+    }
+  }
 
-export default function App({ onNavigate }: AppProps) {
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center gap-6 p-6"
-    style={{ background: C.bg, fontFamily: DISPLAY_FONT }}>
-      <span style={{ color: C.inkDim, fontSize: 12, letterSpacing: "0.14em" }}
-      className="uppercase">Welcome • Select a page</span>
-      <div className="grid grid-cols-2 gap-4 w-full max-w-md">
-        {TILES.map(({ key, label, icon: Icon }) => (
-          <button key={key}
-          onClick={() => onNavigate?.(key)}
-          className="flex flex-col items-center justify-center gap-3 rounded-2xl py-8"
-          style={{
-            background: C.panel,
-            border: '1px solid ${C.panelBorder}',
-            color: C.ink,
-          }}>
-            <Icon size={36} color={C.teal} />
-            <span style={{ fontSize: 14, letterSpacing: "0.04em" }}>{label}</span>
-          </button>
-        ))}
-      </div>
+    <div className="h-screen w-screen flex flex-col" style={{ background: C.bg }}>
+      <div className="flex-1 overflow-y-auto">{renderPage()}</div>
+      <BottomNav activePage={activePage} onNavigate={setActivePage} />
     </div>
   );
 }
