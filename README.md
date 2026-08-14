@@ -1,5 +1,16 @@
 # raspberry_pi_car
 Using a raspberry pi as a dash cam and CAM bus reader
+## How To Deploy This Yourself
+```bash
+npm create vite@latest pi-dashboard -- --template react-ts
+cd pi-dashboard
+npm install
+npm install lucide-react
+npm run dev
+#You should now be able to reach localhost on whatever port Vite shows
+#Gotta add steps for copying code in from GitHub
+```
+
 ## Project Status
 Currently under development - like many of my projects. Currently using react and Vite to build out a dashboard for diagnostics, testing out react-carplay and building custom overlay of OBDII inputs. 
 The below diagram needs to be updated, sorry:
