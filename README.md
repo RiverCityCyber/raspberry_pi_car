@@ -47,3 +47,9 @@ This project is teaching me the following:
 - Overall project experience and mimicing a dev -> prod flow
 - Documentation and markdown syntax
 - And overall just having fun!
+## How to deploy
+```bash
+git clone $this repo because I dont want to copy and paste rn
+cd pi-dashboard
+npm run dev
+```
