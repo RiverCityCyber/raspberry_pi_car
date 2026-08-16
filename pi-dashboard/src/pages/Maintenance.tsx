@@ -1,17 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { C, DISPLAY_FONT } from "../theme";
 
-const C = {
-  bg: "#14171B",
-  panel: "#1B1F24",
-  panelBorder: "#2A2F36",
-  ink: "#F2F4F6",
-  inkDim: "#8A929B",
-  accent: "#6d4aff",
-  success: "#2dd4bf",
-  successDim: "rgba(45,212,191,0.08)",
-};
 
-const DISPLAY_FONT = "'Space Grotesk', 'Inter', sans-serif";
 const CURRENT_MILEAGE = 225000;
 
 export type MaintenanceTask = {

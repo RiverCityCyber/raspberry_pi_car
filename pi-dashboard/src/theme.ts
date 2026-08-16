@@ -12,6 +12,9 @@ export const C = {
   good: "#39D67A",        // secondary green glow (normal/ok status)
   warn: "#FFB020",        // amber (warning zone)
   danger: "#FF3B3B",      // red (danger zone)
+  accent: "#6d4aff",
+  success: "#2dd4bf",
+  successDim: "rgba(45,212,191,0.08)"
 };
 
 export const DISPLAY_FONT = "'Arial Narrow', 'Inter', sans-serif";

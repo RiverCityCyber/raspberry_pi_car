@@ -107,7 +107,7 @@ function DigitalReadout({ label, value, unit, decimals = 1, warnBelow, warnAbove
 }
 
 function DtcPanel() {
-  const codes = [{ code: "P0300", desc: "Random/multiple cylinder misfire", status: "stored" }];
+  const codes = [{ code: "P0300", desc: "Fake code alarm", status: "Store failed, no database attached" }];
   const hasActive = codes.some((c) => c.status === "active");
 
   return (
@@ -148,7 +148,7 @@ function DtcPanel() {
 }
 
 export default function Diagnostics() {
-  const data = { rpm: 2150, speed: 42, coolant: 92, voltage: 14.1, fuel: 68, intakeTemp: 34 };
+  const data = { rpm: 2150, speed: 45, coolant: 102, voltage: 12.0, fuel: 78, intakeTemp: 34 };
 
   return (
     <div className="min-h-full w-full flex flex-col gap-4 p-4" style={{ background: C.bg, fontFamily: DISPLAY_FONT }}>

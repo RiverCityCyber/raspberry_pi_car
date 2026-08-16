@@ -1,14 +1,6 @@
 import React from "react";
+import { C, DISPLAY_FONT } from "../theme";
 
-const C = {
-  bg: "#14171B",
-  panel: "#1B1F24",
-  panelBorder: "#2A2F36",
-  ink: "#F2F4F6",
-  inkDim: "#8A929B",
-};
-
-const DISPLAY_FONT = "'Space Grotesk', 'Inter', sans-serif";
 
 export default function Performance() {
   return (

@@ -3,31 +3,31 @@
     "id": "t1",
     "description": "Replace timing belt and water pump",
     "triggerMileage": 225000,
-    "done": true
+    "done": false
   },
   {
     "id": "t2",
     "description": "Change transmission fluid (ATF-Z1)",
     "triggerMileage": 225000,
-    "done": true
+    "done": false
   },
   {
     "id": "t3",
     "description": "Inspect / replace spark plugs (NGK Iridium)",
     "triggerMileage": 225000,
-    "done": true
+    "done": false
   },
   {
     "id": "t4",
     "description": "Flush coolant system & replace thermostat",
     "triggerMileage": 225000,
-    "done": true
+    "done": false
   },
   {
     "id": "t5",
     "description": "Adjust valve clearance (J35A3)",
     "triggerMileage": 225000,
-    "done": true
+    "done": false
   },
   {
     "id": "t6",
